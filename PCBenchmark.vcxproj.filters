@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\CPU Module">
+      <UniqueIdentifier>{3c4ef1f3-8a9e-49a3-b3d7-fa002e1b20e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CPU Module">
+      <UniqueIdentifier>{8a602912-84a8-4bac-97e4-c8ee5fd4f4f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GPU Module">
+      <UniqueIdentifier>{c42975ab-af64-42b1-afda-97ac8c9b33e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GPU Module">
+      <UniqueIdentifier>{a07188d0-0497-4ea9-a3b1-b4e932d1b770}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CPU Module\core_list_join.c">
+      <Filter>Source Files\CPU Module</Filter>
+    </ClCompile>
+    <ClCompile Include="CPU Module\core_main.c">
+      <Filter>Source Files\CPU Module</Filter>
+    </ClCompile>
+    <ClCompile Include="CPU Module\core_matrix.c">
+      <Filter>Source Files\CPU Module</Filter>
+    </ClCompile>
+    <ClCompile Include="CPU Module\core_portme.c">
+      <Filter>Source Files\CPU Module</Filter>
+    </ClCompile>
+    <ClCompile Include="CPU Module\core_state.c">
+      <Filter>Source Files\CPU Module</Filter>
+    </ClCompile>
+    <ClCompile Include="CPU Module\core_util.c">
+      <Filter>Source Files\CPU Module</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cpu_main.c">
+      <Filter>Source Files\CPU Module</Filter>
+    </ClCompile>
+    <ClCompile Include="CPU Module\whetstone.c">
+      <Filter>Source Files\CPU Module</Filter>
+    </ClCompile>
+    <ClCompile Include="gpu_main.c">
+      <Filter>Source Files\GPU Module</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CPU Module\core_portme.h">
+      <Filter>Header Files\CPU Module</Filter>
+    </ClInclude>
+    <ClInclude Include="CPU Module\coremark.h">
+      <Filter>Header Files\CPU Module</Filter>
+    </ClInclude>
+    <ClInclude Include="CPU Module\cpu_main.h">
+      <Filter>Header Files\CPU Module</Filter>
+    </ClInclude>
+    <ClInclude Include="CPU Module\whetstone.h">
+      <Filter>Header Files\CPU Module</Filter>
+    </ClInclude>
+    <ClInclude Include="gpu_main.h">
+      <Filter>Header Files\GPU Module</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
