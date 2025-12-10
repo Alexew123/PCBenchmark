@@ -221,25 +221,6 @@ IILOOP:
 	IF(JJ == II)POUT(N4, J, J, X1, X2, X3, X4);
 #endif
 
-	/*
-	C
-	C	Module 5: Omitted
-	C 	Module 6: Integer arithmetic
-	C
-	*/
-
-	J = 1;
-	K = 2;
-	L = 3;
-
-	for (I = 1; I <= N6; I++) {
-		J = J * (K - J) * (L - K);
-		K = L * K - (L - J) * K;
-		L = (L - K) * (K + J);
-		E1[L - 1] = J + K + L;
-		E1[K - 1] = J * K * L;
-	}
-
 #ifdef PRINTOUT
 	IF(JJ == II)POUT(N6, J, K, E1[1], E1[2], E1[3], E1[4]);
 #endif
@@ -295,21 +276,6 @@ IILOOP:
 #ifdef PRINTOUT
 	IF(JJ == II)POUT(N9, J, K, E1[1], E1[2], E1[3], E1[4]);
 #endif
-
-	/*
-	C
-	C	Module 10: Integer arithmetic
-	C
-	*/
-	J = 2;
-	K = 3;
-
-	for (I = 1; I <= N10; I++) {
-		J = J + K;
-		K = J + K;
-		J = K - J;
-		K = K - J - J;
-	}
 
 #ifdef PRINTOUT
 	IF(JJ == II)POUT(N10, J, K, X1, X2, X3, X4);

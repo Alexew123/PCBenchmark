@@ -25,6 +25,12 @@
     <Filter Include="Header Files\GPU Module">
       <UniqueIdentifier>{a07188d0-0497-4ea9-a3b1-b4e932d1b770}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\RAM Module">
+      <UniqueIdentifier>{1a90bce0-405b-4323-9be3-b210302e77eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RAM Module">
+      <UniqueIdentifier>{1ca665cf-9bcc-4a6b-a728-47730afa559c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPU Module\core_list_join.c">
@@ -57,6 +63,9 @@
     <ClCompile Include="gpu_main.c">
       <Filter>Source Files\GPU Module</Filter>
     </ClCompile>
+    <ClCompile Include="ram_main.c">
+      <Filter>Source Files\RAM Module</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPU Module\core_portme.h">
@@ -73,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="gpu_main.h">
       <Filter>Header Files\GPU Module</Filter>
+    </ClInclude>
+    <ClInclude Include="ram_main.h">
+      <Filter>Header Files\RAM Module</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

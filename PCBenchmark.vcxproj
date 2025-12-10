@@ -139,6 +139,7 @@
     <ClCompile Include="cpu_main.c" />
     <ClCompile Include="gpu_main.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="ram_main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPU Module\coremark.h" />
@@ -146,6 +147,7 @@
     <ClInclude Include="CPU Module\cpu_main.h" />
     <ClInclude Include="CPU Module\whetstone.h" />
     <ClInclude Include="gpu_main.h" />
+    <ClInclude Include="ram_main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

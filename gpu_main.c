@@ -184,11 +184,12 @@ void gpu_main(void) {
     // Bandwidth
     double bw_write = buffer_bytes / t_write / 1e9;
     double bw_read = buffer_bytes / t_read / 1e9;
-    double bw_rw = (2.0 * buffer_bytes) / t_rw / 1e9; // read + write
+    double bw_rw = (2.0 * buffer_bytes) / t_rw / 1e9;
 
-    printf("Write bandwidth:      %.2f GB/s\n", bw_write);
-    printf("Read bandwidth:       %.2f GB/s\n", bw_read);
+    printf("Write bandwidth: %.2f GB/s\n", bw_write);
+    printf("Read bandwidth: %.2f GB/s\n", bw_read);
     printf("Read+Write bandwidth: %.2f GB/s\n", bw_rw);
+    printf("\n");
 
     // Cleanup
     clReleaseMemObject(buf_in);

@@ -3,8 +3,9 @@
 #include "GPU Module/gpu_main.h"
 
 int main(void) {
-	//cpu_main();
+	cpu_main();
 	gpu_main();
+	ram_main();
 
 	printf("\nPress ENTER to exit...");
 	getchar();
