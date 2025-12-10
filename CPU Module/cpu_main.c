@@ -1,7 +1,13 @@
 #include <stdio.h>
 #include <windows.h>
 #include <intrin.h>
-#include "CPU Module/coremark.h"
+#include "coremark.h"
+#include "cpu_main.h"
+#include "whetstone.h"
+
+#define WHETSTONE_LOOPCOUNT 5000000
+
+
 
 void cpu_main(void) {
 
@@ -54,13 +60,28 @@ void cpu_main(void) {
             ptr += info->Size;
         }
 
-    }
+    }   
     free(buffer);
     printf("Number of cores: %u\n", cores);
     printf("Number of threads: %u\n", threads);
 
+	// Get CPU Frequencies
+    __cpuid(cpuInfo, 0);
+    if (cpuInfo[0] >= 0x16) {
+        __cpuid(cpuInfo, 0x16);
+        printf("Processor Base Frequency:  %0.2f GHz\r\n", cpuInfo[0]/1e3);
+        printf("Maximum Frequency:         %0.2f GHz\r\n", cpuInfo[1]/1e3);
+    }
+    else {
+        printf("CPUID level 16h unsupported\r\n");
+    }
+
 	printf("Starting integer benchmark...\n");
     coremark_main();
 
-    return 0;
+	printf("Starting floating-point benchmark...\n");
+	whetstone_main(WHETSTONE_LOOPCOUNT);
+
+
+
 }

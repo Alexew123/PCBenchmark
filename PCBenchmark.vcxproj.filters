@@ -54,16 +54,16 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cpu_main.c">
-      <Filter>Source Files\CPU Module</Filter>
-    </ClCompile>
     <ClCompile Include="CPU Module\whetstone.c">
       <Filter>Source Files\CPU Module</Filter>
     </ClCompile>
-    <ClCompile Include="gpu_main.c">
+    <ClCompile Include="CPU Module\cpu_main.c">
+      <Filter>Source Files\CPU Module</Filter>
+    </ClCompile>
+    <ClCompile Include="GPU Module\gpu_main.c">
       <Filter>Source Files\GPU Module</Filter>
     </ClCompile>
-    <ClCompile Include="ram_main.c">
+    <ClCompile Include="RAM Module\ram_main.c">
       <Filter>Source Files\RAM Module</Filter>
     </ClCompile>
   </ItemGroup>

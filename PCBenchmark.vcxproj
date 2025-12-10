@@ -135,11 +135,11 @@
     <ClCompile Include="CPU Module\core_portme.c" />
     <ClCompile Include="CPU Module\core_state.c" />
     <ClCompile Include="CPU Module\core_util.c" />
+    <ClCompile Include="CPU Module\cpu_main.c" />
     <ClCompile Include="CPU Module\whetstone.c" />
-    <ClCompile Include="cpu_main.c" />
-    <ClCompile Include="gpu_main.c" />
+    <ClCompile Include="GPU Module\gpu_main.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="ram_main.c" />
+    <ClCompile Include="RAM Module\ram_main.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPU Module\coremark.h" />
