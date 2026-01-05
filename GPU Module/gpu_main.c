@@ -4,7 +4,7 @@
 
 double run_and_time(cl_command_queue queue, cl_kernel kernel, size_t global, size_t local);
 
-void gpu_main(void) {
+void gpu_main(int gui_iterations) {
     cl_platform_id platform;
     cl_device_id device;
     cl_uint num_devices;
@@ -184,7 +184,16 @@ void gpu_main(void) {
     // Bandwidth
     double bw_write = buffer_bytes / t_write / 1e9;
     double bw_read = buffer_bytes / t_read / 1e9;
-    double bw_rw = (2.0 * buffer_bytes) / t_rw / 1e9;
+    //double bw_rw = (2.0 * buffer_bytes) / t_rw / 1e9;
+    double bw_rw = 0;
+
+
+    for (int i = 0; i < gui_iterations; i++) {
+        double t_rw = run_and_time(queue2, k_rw, global, local);
+        bw_rw = (2.0 * buffer_bytes) / t_rw / 1e9;
+
+        printf("PLOT:GPU:%d:%.2f\n", i, bw_rw);
+    }
 
     printf("Write bandwidth: %.2f GB/s\n", bw_write);
     printf("Read bandwidth: %.2f GB/s\n", bw_read);

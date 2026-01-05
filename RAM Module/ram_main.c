@@ -91,15 +91,26 @@ void ram_main(void) {
 
     char* dest_buffer = (char*)malloc(BLOCK_SIZE_BYTES);
     if (dest_buffer) {
-        start = get_time_sec();
+        //start = get_time_sec();
+        double total_copy_time = 0.0;
         for (int i = 0; i < BW_ITERATIONS; i++) {
+            double iter_start = get_time_sec();
             memcpy(dest_buffer, buffer, BLOCK_SIZE_BYTES);
+            double iter_end = get_time_sec();
+            double iter_duration = iter_end - iter_start;
+            total_copy_time += iter_duration;
+            if (iter_duration > 0.000001) {
+                double iter_gb = ((double)BLOCK_SIZE_MB / 1024.0) / iter_duration;
+
+                printf("PLOT:RAM:%d:%.2f\n", i, iter_gb);
+                fflush(stdout);
+            }
         }
-        end = get_time_sec();
+        //end = get_time_sec();
         free(dest_buffer);
 
-        duration = end - start;
-        speed_mb = ((double)BLOCK_SIZE_MB * BW_ITERATIONS) / duration;
+        //duration = end - start;
+        speed_mb = ((double)BLOCK_SIZE_MB * BW_ITERATIONS) / total_copy_time;
         speed_gb = speed_mb / 1024.0;
 
         printf("Copy Bandwidth: %.2f GB/s\n", speed_gb);

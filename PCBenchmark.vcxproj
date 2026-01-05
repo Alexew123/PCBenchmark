@@ -149,6 +149,9 @@
     <ClInclude Include="gpu_main.h" />
     <ClInclude Include="ram_main.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="launcher.py" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -87,4 +87,9 @@
       <Filter>Header Files\RAM Module</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="launcher.py">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

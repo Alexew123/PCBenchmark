@@ -21,6 +21,7 @@ Original Author: Shay Gal-on
    initial parameters, tun t he benchmark and report the results.
 */
 #include "coremark.h"
+#include <Windows.h>
 
 /* Function: iterate
         Run the benchmark for a specified number of iterations.
@@ -48,6 +49,11 @@ static ee_u16 state_known_crc[]  = { (ee_u16)0x5e47,
                                     (ee_u16)0xe5a4,
                                     (ee_u16)0x8e3a,
                                     (ee_u16)0x8d84 };
+
+double get_time_diff(CORE_TICKS start, CORE_TICKS end) {
+    return time_in_secs(end - start);
+}
+
 void *
 iterate(void *pres)
 {
@@ -60,14 +66,46 @@ iterate(void *pres)
     res->crcmatrix           = 0;
     res->crcstate            = 0;
 
+    LARGE_INTEGER frequency;
+    LARGE_INTEGER start_t, end_t;
+    QueryPerformanceFrequency(&frequency);
+
+    ee_u32 chunk_size = iterations / 20;
+    if (chunk_size < 1000) chunk_size = 1000;
+    ee_u32 chunk_iters = 0;
+
+    QueryPerformanceCounter(&start_t);
+
     for (i = 0; i < iterations; i++)
     {
+        //CORE_TICKS start_it = get_time();
         crc      = core_bench_list(res, 1);
         res->crc = crcu16(crc, res->crc);
         crc      = core_bench_list(res, -1);
         res->crc = crcu16(crc, res->crc);
         if (i == 0)
             res->crclist = res->crc;
+
+        chunk_iters++;
+        //CORE_TICKS end_it = get_time();
+        
+        if (chunk_iters >= chunk_size) {
+            QueryPerformanceCounter(&end_t);
+            double seconds = (double)(end_t.QuadPart - start_t.QuadPart) / frequency.QuadPart;
+
+            if (seconds > 0.0) {
+                double score = (double)chunk_iters / seconds;
+
+                printf("PLOT:CPU:%d:%.2f\n", i, score);
+                fflush(stdout);
+            }
+
+            chunk_iters = 0;
+            QueryPerformanceCounter(&start_t);
+
+            if (res->seed1 == 0) res->seed1 = 1; else res->seed1 += 1;
+        }
+
     }
     return NULL;
 }
