@@ -11,7 +11,7 @@ Hi! 👋 This is my semester project for **System Structure & Performance**. I w
 
 ## 👀 What it looks like
 
-![Dashboard Screenshot](screenshots/main_dashboard.png)
+![Dashboard Screenshot](https://github.com/user-attachments/assets/80a3dad9-6f47-44eb-b6c3-7e3b80a33f82)
 
 ---
 
